@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+  <a class="navbar-brand" routerLink="/">Angular Admin</a>
+  <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+  <div class="nav nav-pills nav-fill" *ngIf="auth.isAuthenticated()">
+
+
+    <a [routerLink]=" ['/admin', 'dashboard' ]" routerLinkActive="active" class="nav-item nav-link">Home</a>
+    <a [routerLink]="['/admin', 'create']" routerLinkActive="active" class="nav-item nav-link">Create</a>
+    <a href="#" (click)="logout($event) " class="nav-item nav-link">Exit</a>
+  </div>
+  <!-- </div> -->
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
