@@ -1,1 +1,42 @@
-<p>create-page works!</p>
+<div class="container">
+  <div class="row  justify-content-center">
+
+    <div class="col-sm-6">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <!-- Post title -->
+        <div class="form-group mt-4 mb-2">
+          <label for="title" class="mb-2">Post title:</label>
+          <input type="text" formControlName="title" class="form-control" id="title"
+            [ngClass]="{ 'is-invalid': submitted && f['title'].errors }" />
+          <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+            <div *ngIf="f['title'].errors['required']">Post title is required</div>
+          </div>
+        </div>
+
+        <!--Post author  -->
+        <div class=" form-group mb-2">
+          <label for="author" class="mb-2 ">Post author:</label>
+          <input type="text" formControlName="author" class="form-control" id="author"
+            [ngClass]="{ 'is-invalid': submitted && f['author'].errors }" />
+          <div *ngIf="submitted && f['author'].errors" class="invalid-feedback">
+            <div *ngIf="f['author'].errors['required']">Post author is required</div>
+          </div>
+        </div>
+
+
+        <!-- Post content -->
+        <div class="form-group mb-2">
+          <label class="mb-2">Post content:</label>
+          <quill-editor formControlName="text"></quill-editor>
+        </div>
+
+        <!-- button -->
+        <div class="form-group mt-4">
+          <button type="submit" class="btn btn-primary">Create post</button>
+          <!-- <button type="button" (click)="onReset()" class="btn btn-warning float-right">Reset</button> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
