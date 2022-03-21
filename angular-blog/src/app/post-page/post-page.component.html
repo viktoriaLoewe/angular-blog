@@ -1,33 +1,20 @@
-<div class="container">
+<div class="container" *ngIf="post$ |async as post; else loading">
   <div class="header">
     <div class="row">
-      <h1 class="mb-4">Post Title</h1>
+      <h1 class="mb-4">{{post.title}}</h1>
     </div>
   </div>
   <div class="row">
-    <strong>Autor</strong>
-    <small class="mb-2">13.03.2022</small>
+    <strong> {{post.author}}</strong>
+    <small class="mb-2">{{post.date | date:'medium':'de'}}</small>
   </div>
   <div class="row">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis consectetur veniam tempore impedit repellendus
-      odio
-      nesciunt, reprehenderit recusandae mollitia illo labore laborum odit libero molestias explicabo ducimus placeat
-      voluptatibus aut cumque accusamus quos. Incidunt, corrupti mollitia vel natus sapiente totam, eum repellat dolore,
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis consectetur veniam tempore impedit repellendus
-      odio nesciunt, reprehenderit recusandae mollitia illo labore
-      laborum odit libero molestias explicabo ducimus placeat voluptatibus aut cumque accusamus quos. Incidunt, corrupti
-      mollitia vel natus sapiente totam, eum repellat dolore, culpa consequatur adipisci nobis cumque! Eligendi, quis?
-    </p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.Debitis consectetur veniam tempore impedit repellendus
-      odio nesciunt, reprehenderit recusandae mollitia illo labore
-      laborum odit libero molestias explicabo ducimus placeat voluptatibus aut cumque accusamus quos. Incidunt, corrupti
-      mollitia vel natus sapiente totam, eum repellat dolore, culpa consequatur adipisci nobis cumque! Eligendi, quis?
-    </p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis consectetur veniam tempore impedit repellendus
-      odio nesciunt, reprehenderit recusandae mollitia illo labore laborum odit libero molestias explicabo ducimus
-      placeat voluptatibus aut cumque accusamus quos. Incidunt, corrupti mollitia vel natus sapiente totam, eum repellat
-      dolore, culpa consequatur adipisci nobis cumque! Eligendi, quis?</p>
+    <quill-view-html [content]="post.text"></quill-view-html>
   </div>
   <button routerLink="/" class="btn btn-dark">Homepage</button>
 
 </div>
+
+<ng-template #loading>
+  <p class="text-center">Loading...</p>
+</ng-template>

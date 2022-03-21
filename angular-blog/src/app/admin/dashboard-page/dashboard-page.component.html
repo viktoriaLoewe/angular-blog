@@ -1,8 +1,4 @@
-<div>
-  <!-- *ngIf="posts.length; else loading" -->
-  <!-- <div class="form-control">
-    <input type="text" placeholder="Search post...">
-  </div> -->
+<div *ngIf="posts.length; else loading">
   <table class="table mt-4">
     <thead class="bg-primary" style="color: white;">
       <tr>
@@ -29,8 +25,6 @@
     </tbody>
   </table>
 </div>
-
-
 <ng-template #loading>
   <p class="text-center">Loading...</p>
 </ng-template>

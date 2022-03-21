@@ -16,7 +16,7 @@ export class EditPageComponent implements OnInit {
   form: FormGroup = new FormGroup({
     title: new FormControl(''),
      text: new FormControl(''), });
-  post: Post = null;
+  post!: Post;
   submitted = false;
 
   constructor(
@@ -46,7 +46,6 @@ export class EditPageComponent implements OnInit {
   get f(): { [key: string]: AbstractControl} {
     return this.form.controls;
   }
-
 
   submit() {
     this.submitted = true

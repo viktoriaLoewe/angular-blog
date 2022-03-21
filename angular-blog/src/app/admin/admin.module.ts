@@ -24,7 +24,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    // SharedModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: '', component: AdminLayoutComponent, children: [
