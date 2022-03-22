@@ -1,25 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import Validation from '../../utils/validation';
-import {User} from '../../interfaces';
-import {Router} from '@angular/router';
-import { AuthService } from '../../auth/auth.service';
-
-
+import { Component } from "@angular/core";
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { AuthService } from "./auth/auth.service";
+import { User } from "./interfaces";
 
 @Component({
-  selector: 'app-signup-page',
-  templateUrl: './signup-page.component.html',
-  styleUrls: ['./signup-page.component.css']
+  template: ''
 })
 
-export class SignupPageComponent implements OnInit {
+export class Validation {
   form: FormGroup = new FormGroup({
     username: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
   });
-  submitted = false;
+    submitted = false;
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,

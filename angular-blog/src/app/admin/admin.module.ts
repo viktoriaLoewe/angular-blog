@@ -30,12 +30,9 @@ import { SharedModule } from '../shared/shared.module';
         path: '', component: AdminLayoutComponent, children: [
           {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
           {path: 'login', component: LoginPageComponent},
-          // canActivate: [AuthGuard]
-          {path: 'dashboard', component:DashboardPageComponent},
-          // canActivate: [AuthGuard]
-          {path: 'create', component: CreatePageComponent},
-          // canActivate: [AuthGuard]
-          {path: 'post/:id/edit', component:EditPageComponent}
+          {path: 'dashboard', component:DashboardPageComponent, canActivate: [AuthGuard]},
+          {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},
+          {path: 'post/:id/edit', component:EditPageComponent, canActivate: [AuthGuard]}
         ]
       }
     ])

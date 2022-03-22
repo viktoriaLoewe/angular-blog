@@ -1,9 +1,7 @@
 export interface User {
-  // id: string
-  // username:string
+  username:string
   email: string
   password: string
-  // returnSecureToken: boolean
 }
 
 export interface Post {

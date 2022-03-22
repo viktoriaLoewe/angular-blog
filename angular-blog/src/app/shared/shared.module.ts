@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from './authconfig.interceptor';
 import { QuillModule } from 'ngx-quill';
+import { Validation } from './validation';
 
 
 @NgModule({
@@ -13,10 +14,13 @@ import { QuillModule } from 'ngx-quill';
     HttpClientModule,
     QuillModule
   ],
-  providers: [{
+  providers: [
+    Validation,
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
-    multi: true
+    multi: true,
+
   }]
 })
 
