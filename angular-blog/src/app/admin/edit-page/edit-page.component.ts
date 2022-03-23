@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { PostsService } from '../../shared/posts.service';
 import Validation from 'src/app/shared/utils/validation';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription, switchMap } from 'rxjs';
+import {switchMap } from 'rxjs';
 import { Post } from 'src/app/shared/interfaces';
 
 @Component({

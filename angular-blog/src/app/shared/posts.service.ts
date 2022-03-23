@@ -1,8 +1,7 @@
-import {getNgModuleById, Injectable} from '@angular/core';
+import { Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CreateResponse, Post} from './interfaces';
-import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
@@ -11,7 +10,7 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   create(post: Post): Observable<Post> {
-    return this.http.post<Post>(`${this.endpoint}/posts.json`, post)
+    return this.http.post<Post>(`${this.endpoint}/posts`, post)
       // .pipe(map((response: CreateResponse) => {
       //   return {
       //     ...post,
@@ -22,7 +21,7 @@ export class PostsService {
   }
 
   getAll(): Observable<Post[]> {
-    return this.http.get(`${this.endpoint}/posts.json`)
+    return this.http.get(`${this.endpoint}/posts`)
     .pipe(map((response: {[key:string]: any}) => {
       Object.keys(response).map(key => ({
         ...response[key],
@@ -34,7 +33,7 @@ export class PostsService {
   }
 
 getById(id: string): Observable<Post>{
-  return this.http.get<Post>(`${this.endpoint}/posts/${id}.json`)
+  return this.http.get<Post>(`${this.endpoint}/posts/${id}`)
   .pipe(map((post: Post) => {
         return {
           ...post, id,
@@ -44,11 +43,11 @@ getById(id: string): Observable<Post>{
 }
 
   remove(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.endpoint}/posts/${id}.json`)
+    return this.http.delete<void>(`${this.endpoint}/posts/${id}`)
   }
 
   update(post: Post): Observable<Post> {
-    return this.http.patch<Post>(`${this.endpoint}/posts/${post.id}.json`, post)
+    return this.http.patch<Post>(`${this.endpoint}/posts/${post.id}`, post)
   }
 
 }

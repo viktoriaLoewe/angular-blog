@@ -1,12 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PostsService} from '../../shared/posts.service';
 import {Post} from '../../shared/interfaces';
-import {Observable, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-page',
   templateUrl: './dashboard-page.component.html',
-  styleUrls: ['./dashboard-page.component.scss']
+  styleUrls: ['./dashboard-page.component.css']
 })
 export class DashboardPageComponent implements OnInit, OnDestroy {
 

@@ -7,7 +7,7 @@ import { PostsService } from 'src/app/shared/posts.service';
 @Component({
   selector: 'app-create-page',
   templateUrl: './create-page.component.html',
-  styleUrls: ['./create-page.component.scss']
+  styleUrls: ['./create-page.component.css']
 })
 
 
