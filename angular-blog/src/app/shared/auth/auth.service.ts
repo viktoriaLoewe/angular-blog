@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces';
-import { Observable, Subject, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -18,6 +18,8 @@ export class AuthService {
     public router: Router
     ) {}
 
+
+
   // Sign-up
   signup(user: User): Observable<any> {
     let api = `${this.endpoint}/auth/local/register`;
@@ -28,11 +30,13 @@ export class AuthService {
   // Login
   login(user: User) {
     return this.http
-      .post<any>(`${this.endpoint}/auth/local/`, user)
+      .post<any>(`${this.endpoint}/auth/local`, user)
       // .pipe(tap(this.setToken),catchError(this.handleError.bind(this)))
       .subscribe((res: any) => {
-        localStorage.setItem('access_token', res.token);
+        localStorage.setItem('access_token', res.jwt);
+        this.router.navigate(['/admin', 'dashboard']);
       });
+
   }
 
   getToken() {

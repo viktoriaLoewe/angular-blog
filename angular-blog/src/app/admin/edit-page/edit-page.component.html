@@ -1,5 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   <div *ngIf="form; else loading">
+    <!-- post title -->
     <div class="form-group mt-4 mb-2">
       <label for="title" class="mb-2">Post title:</label>
       <input type="text" formControlName="title" class="form-control" id="title"
@@ -8,8 +9,18 @@
         <div *ngIf="f['title'].errors['required']">Post title is required</div>
       </div>
     </div>
+    <!-- post description -->
+    <div class="form-group mt-4 mb-2">
+      <label for="description" class="mb-2">Post description:</label>
+      <input type="text" formControlName="description" class="form-control" id="description"
+        [ngClass]="{ 'is-invalid': submitted && f['description'].errors }" />
+      <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+        <div *ngIf="f['description'].errors['required']">Post description is required</div>
+      </div>
+    </div>
+    <!-- post content -->
     <div class="form-control">
-      <quill-editor formControlName="text"></quill-editor>
+      <quill-editor formControlName="content"></quill-editor>
     </div>
 
     <button class="btn btn-primary" type="submit">Refresh</button>

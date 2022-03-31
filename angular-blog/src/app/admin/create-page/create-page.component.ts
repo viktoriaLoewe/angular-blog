@@ -12,12 +12,7 @@ import { PostsService } from 'src/app/shared/posts.service';
 
 
 export class CreatePageComponent implements OnInit {
-form: FormGroup = new FormGroup({
-    title: new FormControl(''),
-    author: new FormControl(''),
-    text: new FormControl(''),
-
-  });
+form: FormGroup = new FormGroup({});
     submitted = false;
 
   constructor(
@@ -30,9 +25,8 @@ form: FormGroup = new FormGroup({
     this.form = this.formBuilder.group(
       {
         title: new FormControl(null, Validators.required),
-        author: new FormControl(null, Validators.required),
-        text: new FormControl(null, Validators.required)
-
+        description: new FormControl(null, Validators.required),
+        content: new FormControl(null, Validators.required)
 
       },
     );
@@ -47,13 +41,12 @@ form: FormGroup = new FormGroup({
     if (this.form.invalid) {
       return
     }
-    console.log(JSON.stringify(this.form.value, null, 2));
+    this.form.value;
 
     const post: Post = {
       title: this.form.value.title,
-      author: this.form.value.author,
-      text: this.form.value.text,
-      date: new Date()
+      description: this.form.value.description,
+      content: this.form.value.content,
     }
 
     this.postService.create(post).subscribe(() => {

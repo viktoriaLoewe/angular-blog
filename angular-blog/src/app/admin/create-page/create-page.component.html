@@ -14,21 +14,20 @@
           </div>
         </div>
 
-        <!--Post author  -->
+        <!--Post description  -->
         <div class=" form-group mb-2">
-          <label for="author" class="mb-2 ">Post author:</label>
-          <input type="text" formControlName="author" class="form-control" id="author"
-            [ngClass]="{ 'is-invalid': submitted && f['author'].errors }" />
-          <div *ngIf="submitted && f['author'].errors" class="invalid-feedback">
-            <div *ngIf="f['author'].errors['required']">Post author is required</div>
+          <label for="description" class="mb-2 ">Post description:</label>
+          <input type="text" formControlName="description" class="form-control" id="description"
+            [ngClass]="{ 'is-invalid': submitted && f['description'].errors }" />
+          <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+            <div *ngIf="f['description'].errors['required']">Post description is required</div>
           </div>
         </div>
-
 
         <!-- Post content -->
         <div class="form-group mb-2">
           <label class="mb-2">Post content:</label>
-          <quill-editor formControlName="text"></quill-editor>
+          <quill-editor formControlName="content"></quill-editor>
         </div>
 
         <!-- button -->

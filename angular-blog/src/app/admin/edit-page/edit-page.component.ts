@@ -14,8 +14,10 @@ import { Post } from 'src/app/shared/interfaces';
 export class EditPageComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
-    title: new FormControl(''),
-     text: new FormControl(''), });
+     title: new FormControl(''),
+     description: new FormControl(''),
+     content: new FormControl(''),
+  });
   post!: Post;
   submitted = false;
 
@@ -32,10 +34,12 @@ export class EditPageComponent implements OnInit {
       })
       ).subscribe((post: Post)=> {
         this.post = post
+        // this.form.patchValue(this.post)
         this.form = this.formBuilder.group(
       {
-        title: new FormControl(null, Validators.required),
-        text: new FormControl(null, Validators.required)
+        title: new FormControl(post.title, Validators.required),
+        description: new FormControl(post.description, Validators.required),
+        content: new FormControl(post.content, Validators.required)
       },
     );
       })
@@ -54,8 +58,9 @@ export class EditPageComponent implements OnInit {
     }
     this.postsService.update({
       ...this.post,
-      text: this.form.value.text,
-      title: this.form.value.title
+      title: this.form.value.title,
+      description: this.form.value.description,
+      content: this.form.value.content
     }).subscribe(() => {
       this.submitted = false
     })

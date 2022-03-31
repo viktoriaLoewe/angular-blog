@@ -14,11 +14,7 @@ import { AuthService } from '../../auth/auth.service';
 })
 
 export class SignupPageComponent implements OnInit {
-  form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-  });
+  form: FormGroup = new FormGroup({});
   submitted = false;
   constructor(
     private formBuilder: FormBuilder,
@@ -59,7 +55,8 @@ export class SignupPageComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    console.log(JSON.stringify(this.form.value, null, 2));
+    this.form.value;
+    // console.log(JSON.stringify(this.form.value, null, 2));
 
     const user: User = {
       username: this.form.value.username,

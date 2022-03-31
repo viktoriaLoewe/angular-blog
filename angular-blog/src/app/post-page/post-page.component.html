@@ -5,11 +5,11 @@
     </div>
   </div>
   <div class="row">
-    <strong> {{post.author}}</strong>
-    <small class="mb-2">{{post.date | date:'medium':'de'}}</small>
+    <strong> {{post.description}}</strong>
+
   </div>
   <div class="row">
-    <quill-view-html [content]="post.text"></quill-view-html>
+    <quill-view-html [content]="post.content"></quill-view-html>
   </div>
   <button routerLink="/" class="btn btn-dark">Homepage</button>
 

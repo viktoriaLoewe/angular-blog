@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import Validation from '../../shared/utils/validation';
 import {User} from '../../shared/interfaces';
-import {AuthService} from '../shared/services/auth.service';
+import { AuthService } from 'src/app/shared/auth/auth.service';
 import {Router} from '@angular/router';
 
 
@@ -13,10 +13,7 @@ import {Router} from '@angular/router';
 })
 
 export class LoginPageComponent implements OnInit {
-  form: FormGroup = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-  });
+  form: FormGroup = new FormGroup({});
   submitted = false;
 
   constructor(
@@ -50,19 +47,18 @@ export class LoginPageComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    console.log(JSON.stringify(this.form.value, null, 2));
+    this.form.value;
+    // console.log(JSON.stringify(this.form.value, null, 2));
 
     const user: User = {
-      username: this.form.value.username,
+
       email: this.form.value.email,
+      identifier: this.form.value.email,
       password: this.form.value.password
     }
 
 
-    this.auth.login(user).subscribe(() => {
-      this.form.reset()
-      this.router.navigate(['/admin', 'dashboard'])
-    })
+    this.auth.login(user);
   }
 
   // onReset(): void {
