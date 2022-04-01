@@ -19,4 +19,10 @@ export class MainLayoutComponent implements OnInit {
     this.router.navigate(['signup'])
   }
 
+  login(event: Event) {
+    // console.log('work')
+    event.preventDefault()
+    this.router.navigate(['/admin', 'login'])
+  }
+
 }

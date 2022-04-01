@@ -12,6 +12,11 @@ import { PostPageComponent } from './post-page/post-page.component';
 import { PostComponent } from './shared/components/post/post.component';
 import { SignupPageComponent } from './shared/components/signup-page/signup-page.component';
 import {SharedModule} from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MaterialExampleModule} from '../material.module';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 registerLocaleData(deLocale, 'de')
@@ -23,7 +28,7 @@ registerLocaleData(deLocale, 'de')
     HomePageComponent,
     PostPageComponent,
     PostComponent,
-    SignupPageComponent
+    SignupPageComponent,
   ],
 
   imports: [
@@ -32,6 +37,9 @@ registerLocaleData(deLocale, 'de')
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    BrowserAnimationsModule,
+    MatNativeDateModule,
+    MaterialExampleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

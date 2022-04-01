@@ -4,6 +4,7 @@ import {MainLayoutComponent} from './shared/components/main-layout/main-layout.c
 import {HomePageComponent} from './home-page/home-page.component';
 import {PostPageComponent} from './post-page/post-page.component';
 import {SignupPageComponent} from './shared/components/signup-page/signup-page.component';
+import { LoginPageComponent } from './admin/login-page/login-page.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
       {path: '', redirectTo: '/', pathMatch: 'full'},
       {path: '', component: HomePageComponent},
       {path: 'post/:id', component: PostPageComponent},
+      {path: 'login', component: LoginPageComponent},
       {path: 'signup', component: SignupPageComponent},
     ]
   },
