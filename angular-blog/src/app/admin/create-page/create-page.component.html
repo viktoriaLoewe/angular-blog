@@ -1,41 +1,44 @@
 <div class="container">
-  <div class="row  justify-content-center">
-
-    <div class="col-sm-6">
-      <form [formGroup]="form" (ngSubmit)="submit()">
-
-        <!-- Post title -->
-        <div class="form-group mt-4 mb-2">
-          <label for="title" class="mb-2">Post title:</label>
-          <input type="text" formControlName="title" class="form-control" id="title"
-            [ngClass]="{ 'is-invalid': submitted && f['title'].errors }" />
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <h2> Create a new post</h2>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Post content</mat-label>
+        <input matInput placeholder="Best books 2022" required formControlName="title"
+          [ngClass]="{ 'is-invalid': submitted && f['title'].errors }">
+        <mat-error>
           <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
             <div *ngIf="f['title'].errors['required']">Post title is required</div>
           </div>
-        </div>
+        </mat-error>
+      </mat-form-field>
+    </p>
 
-        <!--Post description  -->
-        <div class=" form-group mb-2">
-          <label for="description" class="mb-2 ">Post description:</label>
-          <input type="text" formControlName="description" class="form-control" id="description"
-            [ngClass]="{ 'is-invalid': submitted && f['description'].errors }" />
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Post description</mat-label>
+        <input matInput placeholder="Thrillers, essays and family sagas..." required formControlName="description"
+          [ngClass]="{ 'is-invalid': submitted && f['description'].errors }">
+        <mat-error>
           <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
             <div *ngIf="f['description'].errors['required']">Post description is required</div>
           </div>
-        </div>
+        </mat-error>
+      </mat-form-field>
+    </p>
 
-        <!-- Post content -->
-        <div class="form-group mb-2">
-          <label class="mb-2">Post content:</label>
-          <quill-editor formControlName="content"></quill-editor>
-        </div>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Post content</mat-label>
+        <input matInput required>
+        <!-- <input matInput required formControlName="content"> -->
+        <quill-editor formControlName="content"></quill-editor>
 
-        <!-- button -->
-        <div class="form-group mt-4">
-          <button type="submit" class="btn btn-primary">Create post</button>
-          <!-- <button type="button" (click)="onReset()" class="btn btn-warning float-right">Reset</button> -->
-        </div>
-      </form>
-    </div>
-  </div>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <button mat-flat-button>Let's go</button>
+    </p>
+  </form>
 </div>

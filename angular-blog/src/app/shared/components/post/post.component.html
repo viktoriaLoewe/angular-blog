@@ -1,25 +1,16 @@
-<mat-card>
-  <!-- <div class="container mb-2 p-4 ">
-    <div class="row mt-4">
-      <div class="col-sm"> -->
-  <mat-card-title>
-    <h3 class="mb-4"> {{post.title}}</h3>
-  </mat-card-title>
-  <!-- </div>
-      <div class="col-sm mt-2"> -->
-  <mat-card-subtitle>
-    <p>{{post.description}}</p>
-  </mat-card-subtitle>
-  <!-- </div> -->
+<div class="container">
+  <mat-card>
+    <mat-card-title>
+      <h3 class="mb-4"> {{post.title}}</h3>
+    </mat-card-title>
 
-  <!-- <div class="col-sm  mt-2"> -->
-  <mat-card-actions>
-    <button [routerLink]="['/post', post.id]" mat-flat-button color="black">Show more</button>
-  </mat-card-actions>
-  <!-- <button [routerLink]="['/post', post.id]" type="button" class="btn btn-dark">Show more</button> -->
-  <!-- </div> -->
+    <mat-card-subtitle>
+      <p>{{post.description}}</p>
+    </mat-card-subtitle>
 
-  <!-- </div>
+    <mat-card-actions>
+      <button [routerLink]="['/post', post.id]" mat-flat-button color="black">Show more</button>
+    </mat-card-actions>
 
-  </div> -->
-</mat-card>
+  </mat-card>
+</div>

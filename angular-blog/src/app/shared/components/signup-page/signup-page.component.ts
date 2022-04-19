@@ -16,6 +16,7 @@ import { AuthService } from '../../auth/auth.service';
 export class SignupPageComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   submitted = false;
+  hide = true;
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
@@ -28,8 +29,7 @@ export class SignupPageComponent implements OnInit {
           '',
           [
             Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(20)
+            Validators.minLength(3)
           ]
         ],
         email: ['', [Validators.required, Validators.email]],
@@ -37,8 +37,7 @@ export class SignupPageComponent implements OnInit {
           '',
           [
             Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(40)
+            Validators.minLength(6)
           ]
         ],
       },
@@ -52,6 +51,7 @@ export class SignupPageComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
+    console.log('submit');
     if (this.form.invalid) {
       return;
     }

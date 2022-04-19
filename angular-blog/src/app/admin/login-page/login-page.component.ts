@@ -15,6 +15,7 @@ import {Router} from '@angular/router';
 export class LoginPageComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   submitted = false;
+  hide = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,8 +31,7 @@ export class LoginPageComponent implements OnInit {
           '',
           [
             Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(40)
+            Validators.minLength(6)
           ]
         ],
       },

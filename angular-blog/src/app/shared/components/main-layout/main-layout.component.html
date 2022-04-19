@@ -1,13 +1,12 @@
-<nav class="navbar navbar-dark bg-dark mb-4">
-  <a class="navbar-brand" routerLink="/">Angular Blog</a>
-  <!-- <h1 class="navbar-brand ml-1">Angular Blog</h1> -->
-  <div class="nav nav-pills nav-fill">
-    <a href="#" (click)="signup($event)" class=" nav-item nav-link" style="color: white;">Sign up</a>
-    <a href="#" (click)="login($event)" class=" nav-item nav-link" style="color: white;">Login</a>
-
-  </div>
-</nav>
-
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<mat-drawer-container fullscreen>
+  <mat-drawer mode="side" opened>
+    <h1 routerLink="/">Angular Blog</h1>
+    <mat-list>
+      <mat-list-item><a href="#" (click)="signup($event)" class="">Sign up</a></mat-list-item>
+      <mat-list-item><a href="#" (click)="login($event)" class="">Login</a></mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -11,6 +11,8 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { AuthService } from '../shared/auth/auth.service';
 import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from '../shared/auth/auth.guard';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MaterialExampleModule } from 'src/material.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { AuthGuard } from '../shared/auth/auth.guard';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    MatNativeDateModule,
+    MaterialExampleModule,
     RouterModule.forChild([
       {
         path: '', component: AdminLayoutComponent, children: [

@@ -9,7 +9,7 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./dashboard-page.component.css']
 })
 export class DashboardPageComponent implements OnInit, OnDestroy {
-
+displayedColumns: string[] = ['number', 'description', 'action'];
   posts: Post[] = [];
   pSub!: Subscription;
   dSub!: Subscription;
