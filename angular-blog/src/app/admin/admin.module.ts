@@ -13,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from '../shared/auth/auth.guard';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MaterialExampleModule } from 'src/material.module';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MaterialExampleModule } from 'src/material.module';
     SharedModule,
     MatNativeDateModule,
     MaterialExampleModule,
+    MatTableModule,
     RouterModule.forChild([
       {
         path: '', component: AdminLayoutComponent, children: [
@@ -43,7 +45,7 @@ import { MaterialExampleModule } from 'src/material.module';
       }
     ])
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, MatTableModule],
   providers: [AuthService]
 })
 export class AdminModule {

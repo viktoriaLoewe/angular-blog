@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MaterialExampleModule} from '../material.module';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -40,6 +41,7 @@ registerLocaleData(deLocale, 'de')
     BrowserAnimationsModule,
     MatNativeDateModule,
     MaterialExampleModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
